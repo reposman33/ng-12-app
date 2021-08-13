@@ -1,8 +1,10 @@
 <p>posts works!</p>
 <ul>
-  <li *ngFor="let post of postData.posts">
-    <a href="" [routerLink]="['/posts',post.id]">{{post.title}}</a>
-    <div *ngIf="this.postId == post.id"><span>{{postData.post?.body}}</span></div>
-  </li>
+  <ng-container *ngFor="let post of posts | async">
+    <li (click)="selectPost(post.id)">
+      {{post.title}}
+    </li>
+    <div @openClose *ngIf="selectedPost == post.id"><span>{{post.body}}</span></div>
+  </ng-container>
 </ul>
  

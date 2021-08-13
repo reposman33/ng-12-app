@@ -1,8 +1,7 @@
 ul {
   width: 50vw;
-  a,a:visited {
-    text-decoration: none;
-      color: slategray;
-      font-weight: bold;
+  & li + div {
+    color: red;
+    height: auto;
   }
 }

@@ -1,15 +1,15 @@
-import { TestBed } from '@angular/core/testing';
-import { UserResolver } from './user.resolver';
+import { TestBed } from '@angular/core/testing'
+import { UserResolver } from './user.resolver'
 
-describe('AccessResolver', () => {
-  let resolver: AccessResolver;
+describe('UserResolver', () => {
+	let resolver: UserResolver
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    resolver = TestBed.inject(AccessResolver);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
+		resolver = TestBed.inject(UserResolver)
+	})
 
-  it('should be created', () => {
-    expect(resolver).toBeTruthy();
-  });
-});
+	it('should be created', () => {
+		expect(resolver).toBeTruthy()
+	})
+})
