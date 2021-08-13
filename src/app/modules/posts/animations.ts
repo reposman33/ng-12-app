@@ -9,5 +9,6 @@ export const openClose = (duration: number, easing: string) =>
 			style(styleClosed),
 			animate(`${duration}ms ${easing}`, style(styleOpened)),
 		]),
-		transition(':leave', [animate(`0ms ${easing}`, style(styleClosed))]),
+		// [Leaving animation (* => void) ignored when routerLink used](https://github.com/angular/angular/issues/9350)
+		transition(':leave', [style(styleOpened), animate(`${duration}ms ${easing}`, style(styleClosed))]),
 	])

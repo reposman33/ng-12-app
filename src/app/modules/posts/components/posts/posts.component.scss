@@ -2,8 +2,11 @@ ul {
 	width: 50vw;
 	& li {
 		cursor: pointer;
+		color: #4470b8;
+		font-weight: bold;
 		& div {
-			color: red;
+			color: #e70808;
+			font-weight: normal;
 			height: auto;
 		}
 	}

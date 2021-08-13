@@ -8,7 +8,7 @@ import * as animations from '../../animations'
 	selector: 'app-posts',
 	templateUrl: './posts.component.html',
 	styleUrls: ['./posts.component.scss'],
-	animations: [animations.openClose(1000, 'ease-in')],
+	animations: [animations.openClose(1000, 'ease-in-out')],
 })
 export class PostsComponent implements OnInit {
 	postData: {post: Post, posts: Post[]}
