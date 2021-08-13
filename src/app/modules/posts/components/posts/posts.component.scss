@@ -1,7 +1,10 @@
 ul {
-  width: 50vw;
-  & li + div {
-    color: red;
-    height: auto;
-  }
+	width: 50vw;
+	& li {
+		cursor: pointer;
+		& div {
+			color: red;
+			height: auto;
+		}
+	}
 }

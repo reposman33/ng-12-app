@@ -11,8 +11,8 @@ import * as animations from '../../animations'
 	animations: [animations.openClose(1000, 'ease-in')],
 })
 export class PostsComponent implements OnInit {
-	posts: Observable<Post[]>
-	selectedPost: number = 1
+	postData: {post: Post, posts: Post[]}
+	postId: number
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
@@ -20,14 +20,10 @@ export class PostsComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		// this.activatedRoute.data.subscribe(data => {
-		//   this.postData = data.postData;
-		//   this.postId = this.activatedRoute.snapshot.params.id
-		// })
-		this.posts = this.postService.getPosts()
+		this.activatedRoute.data.subscribe(data => {
+		  this.postData = data.postData;
+		  this.postId = this.activatedRoute.snapshot.params.id
+		})
 	}
 
-	selectPost(id: number) {
-		this.selectedPost = id
-	}
 }
