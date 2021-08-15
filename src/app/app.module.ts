@@ -16,6 +16,7 @@ import { AppComponent } from './app.component'
 		MatCardModule,
 		MatAutocompleteModule,
 		BrowserAnimationsModule,
+	HttpClientModule
 	],
 	bootstrap: [AppComponent],
 })
