@@ -9,7 +9,7 @@ import { UserResolver } from './resolvers/user.resolver'
 
 @NgModule({
 	declarations: [UsersComponent],
-	imports: [CommonModule, UsersRoutingModule, HttpClientModule, MatTreeModule],
+	imports: [CommonModule, UsersRoutingModule, MatTreeModule],
 	providers: [UsersService, UserResolver],
 })
 export class UsersModule {}

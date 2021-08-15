@@ -4,7 +4,7 @@ import { UsersComponent } from './components/users.component'
 import { UserResolver } from './resolvers/user.resolver'
 
 const routes: Routes = [
-	{ path: '', component: UsersComponent, resolve: { userResolver: UserResolver } },
+	{ path: '', component: UsersComponent, resolve: { users: UserResolver } },
 ]
 
 @NgModule({

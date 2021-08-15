@@ -7,7 +7,7 @@ import { PostsService } from 'src/app/services/posts.service'
 
 @NgModule({
 	declarations: [PostsComponent],
-	imports: [CommonModule, PostsRoutingModule, HttpClientModule],
+	imports: [CommonModule, PostsRoutingModule],
 	providers: [PostsResolver, PostsService],
 })
 export class PostsModule {}

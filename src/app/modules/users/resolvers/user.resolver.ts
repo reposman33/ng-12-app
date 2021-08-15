@@ -11,7 +11,7 @@ import { User } from '../models/user'
 export class UserResolver implements Resolve<any> {
 	constructor(private usersService: UsersService) {}
 
-	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User[] | string> {
 		return this.getUsers()
 	}
 
