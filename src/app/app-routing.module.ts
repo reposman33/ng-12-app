@@ -8,17 +8,19 @@ const routes: Routes = [
 		path: 'photos',
 		loadChildren: () =>
 			import('./modules/photos/photos.module').then((m) => m.PhotosModule),
-			canLoad: [AuthGuard]
-	},
+		canLoad: [AuthGuard]
+		},
 	{
 		path: 'items',
 		loadChildren: () =>
 			import('./modules/items/items.module').then((m) => m.ItemsModule),
-	},
+		canLoad: [AuthGuard]
+		},
 	{
 		path: 'users',
 		loadChildren: () =>
 			import('./modules/users/users.module').then((m) => m.UsersModule),
+			canLoad: [AuthGuard]
 	},
 	{
 		path: 'posts',
