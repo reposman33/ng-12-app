@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
-import { PostsService } from 'src/app/services/posts.service'
 import { Post } from '../../models/post'
 import * as animations from '../../animations'
 @Component({
@@ -16,7 +15,6 @@ export class PostsComponent implements OnInit {
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
-		private postService: PostsService,
 	) {}
 
 	ngOnInit(): void {

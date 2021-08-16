@@ -6,7 +6,7 @@ import {
 	ActivatedRouteSnapshot,
 } from '@angular/router'
 import { forkJoin, Observable, of } from 'rxjs'
-import { PostsService } from 'src/app/services/posts.service'
+import { ApiService } from 'src/app/services/api.service'
 import { delay, map } from 'rxjs/operators'
 import { Post } from '../models/post'
 
@@ -14,7 +14,7 @@ import { Post } from '../models/post'
 	providedIn: 'root',
 })
 export class PostsResolver implements Resolve<Observable<any>> {
-	constructor(private postService: PostsService) {}
+	constructor(private apiService: ApiService) {}
 
 	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 		return forkJoin([
@@ -31,10 +31,10 @@ export class PostsResolver implements Resolve<Observable<any>> {
 	}
 
 	getPosts(): Observable<Post[]> {
-		return this.postService.getPosts()
+		return this.apiService.getPosts()
 	}
 
 	getPost(id: number): Observable<Post> {
-		return this.postService.getPost(id)
+		return this.apiService.getPost(id)
 	}
 }
