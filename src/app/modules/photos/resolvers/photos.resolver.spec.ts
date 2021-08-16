@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CustomerResolver } from './customer.resolver';
+import { CustomerResolver } from './photos.resolver';
 
 describe('CustomerResolver', () => {
   let resolver: CustomerResolver;

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs'
-import { Customer } from '../../models/customer'
+import { Photo } from '../../models/photos'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
-	selector: 'app-customers',
-	templateUrl: './customers.component.html',
-	styleUrls: ['./customers.component.scss'],
+	selector: 'app-photos',
+	templateUrl: './photos.component.html',
+	styleUrls: ['./photos.component.scss'],
 })
-export class CustomersComponent {
-	customers: Customer[]
+export class PhotosComponent {
+	customers: Photo[]
 	isActive: boolean = false
 
 	constructor(private activatedRoute: ActivatedRoute) {}

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { AuthGuard } from './guards/auth-guard'
+import { AccessComponent } from './modules/access/components/access/access.component'
 
 const routes: Routes = [
 	{
-		path: 'customers',
+		path: 'photos',
 		loadChildren: () =>
-			import('./modules/customers/customers.module').then((m) => m.CustomersModule),
+			import('./modules/photos/photos.module').then((m) => m.PhotosModule),
+			canLoad: [AuthGuard]
 	},
 	{
 		path: 'items',
@@ -22,6 +25,7 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/posts/posts.module').then((m) => m.PostsModule),
 	},
+	{path: 'access', component: AccessComponent}
 ]
 
 @NgModule({

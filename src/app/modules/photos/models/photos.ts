@@ -1,4 +1,4 @@
-export type Customer = {
+export type Photo = {
 	id: number
 	name: string
 	username: string
