@@ -1,0 +1,28 @@
+<div class="container is-flex is-flex-direction-column">
+	<label for="" class="label">Username</label>
+	<div class="control">
+		<p class="control has-icons-left">
+			<input class="input" type="text" #userName />
+			<span class="icon is-small is-left">
+				<i class="fas fa-envelope"></i>
+			</span>
+		</p>
+	</div>
+
+	<label for="" class="label">Password</label>
+	<div class="control">
+		<p class="control has-icons-left">
+			<input class="input" type="password" #password />
+			<span class="icon is-small is-left">
+				<i class="fas fa-key"></i>
+			</span>
+		</p>
+	</div>
+
+	<button
+		class="button is-link mt-4"
+		(click)="signIn(userName.value, password.value)"
+	>
+		Log in
+	</button>
+</div>
