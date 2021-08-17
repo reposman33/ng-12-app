@@ -11,9 +11,9 @@ const routes: Routes = [
 		canLoad: [AuthGuard]
 		},
 	{
-		path: 'items',
+		path: 'albums',
 		loadChildren: () =>
-			import('./modules/items/items.module').then((m) => m.ItemsModule),
+			import('./modules/albums/albums.module').then((m) => m.AlbumsModule),
 		canLoad: [AuthGuard]
 		},
 	{
