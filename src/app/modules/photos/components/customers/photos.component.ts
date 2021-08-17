@@ -15,7 +15,6 @@ export class PhotosComponent {
 	constructor(private activatedRoute: ActivatedRoute) {}
 
 	ngOnInit() {
-		console.log('customers = ', this.activatedRoute.snapshot.data.customers);
 		this.customers = this.activatedRoute.snapshot.data.customers
 	}
 
