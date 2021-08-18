@@ -8,26 +8,26 @@ const routes: Routes = [
 		path: 'photos',
 		loadChildren: () =>
 			import('./modules/photos/photos.module').then((m) => m.PhotosModule),
-		canLoad: [AuthGuard]
-		},
+		canLoad: [AuthGuard],
+	},
 	{
 		path: 'albums',
 		loadChildren: () =>
 			import('./modules/albums/albums.module').then((m) => m.AlbumsModule),
-		canLoad: [AuthGuard]
-		},
+		canLoad: [AuthGuard],
+	},
 	{
 		path: 'users',
 		loadChildren: () =>
 			import('./modules/users/users.module').then((m) => m.UsersModule),
-			canLoad: [AuthGuard]
+		canLoad: [AuthGuard],
 	},
 	{
 		path: 'posts',
 		loadChildren: () =>
 			import('./modules/posts/posts.module').then((m) => m.PostsModule),
 	},
-	{path: 'access', component: AccessComponent}
+	{ path: 'access', component: AccessComponent },
 ]
 
 @NgModule({
