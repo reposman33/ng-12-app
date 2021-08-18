@@ -1,0 +1,36 @@
+.level {
+	display: flex;
+	align-items: flex-start;
+	overflow-x: auto;
+	width: 80vw;
+}
+
+.photoGrid {
+	display: grid;
+	grid-template-columns: repeat(10, auto);
+	grid-template-rows: repeat(5, auto);
+	gap: 0.1rem;
+	margin: 1rem 1rem;
+	& .photoThumbnail img {
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
+
+.modal {
+	cursor: default;
+	.modal-background.cursor-pointer {
+		cursor: pointer;
+		div {
+			margin: 15vh 10vw;
+			position: relative;
+			text-align: center;
+			z-index: 100;
+
+			& strong {
+				color: white;
+				font-size: 2rem;
+			}
+		}
+	}
+}

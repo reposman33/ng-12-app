@@ -4,7 +4,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
 
 import { PhotosRoutingModule } from './photos-routing.module'
-import { PhotosComponent } from './components/customers/photos.component'
+import { PhotosComponent } from './components/photos/photos.component'
 
 @NgModule({
 	declarations: [PhotosComponent],

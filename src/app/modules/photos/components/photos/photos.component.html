@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="level">
+		<div *ngFor="let albumId of albumIds" class="level-item">
+			<button class="button is-primary mx-1" (click)="selectAlbum(albumId)">
+				Album {{ albumId }}
+			</button>
+		</div>
+	</div>
+</div>
+
+<div class="photoGrid">
+	<span *ngFor="let photo of photos" class="photoThumbnail"
+		><img
+			[src]="photo.thumbnailUrl"
+			[alt]="photo.title"
+			[title]="photo.title"
+			(click)="selectPhoto(photo)"
+	/></span>
+</div>
+
+<div *ngIf="showPhoto" [ngClass]="{ 'is-active': showPhoto, modal: showPhoto }">
+	<div (click)="showPhoto = false" class="modal-background cursor-pointer">
+		<div>
+			<strong>{{ selectedPhoto.title }}</strong>
+		</div>
+	</div>
+	<div class="modal-content">
+		<img [src]="selectedPhoto.url" [alt]="selectedPhoto.title" />
+	</div>
+	<button class="modal-close is-large"></button>
+</div>
