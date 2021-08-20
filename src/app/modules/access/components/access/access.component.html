@@ -1,28 +1,42 @@
-<div class="container is-flex is-flex-direction-column">
-	<label for="" class="label">Username</label>
-	<div class="control">
-		<p class="control has-icons-left">
-			<input class="input" type="text" #userName />
-			<span class="icon is-small is-left">
-				<i class="fas fa-envelope"></i>
-			</span>
-		</p>
+<div class="tile is-ancestor">
+	<div class="tile is-child is-vertical is-parent">
+		<div
+			class="
+				is-child is-12
+				has-background-primary-dark
+				p-3
+				border-tltr-radius-5
+				has-text-white has-text-weight-bold has-text-centered
+				is-size-5
+			"
+		>
+			Even inloggen
+		</div>
+		<div class="is-child box">
+			<label for="" class="label">Username</label>
+			<div class="control">
+				<p class="control has-icons-left">
+					<input class="input" type="text" #userName />
+					<span class="icon is-small is-left">
+						<i class="fas fa-envelope"></i>
+					</span>
+				</p>
+			</div>
+			<label for="" class="label">Password</label>
+			<div class="control">
+				<p class="control has-icons-left">
+					<input class="input" type="password" #password />
+					<span class="icon is-small is-left">
+						<i class="fas fa-key"></i>
+					</span>
+				</p>
+			</div>
+			<button
+				class="button is-link mt-4 is-fullwidth has-text-weight-bold"
+				(click)="signIn(userName.value, password.value)"
+			>
+				Log in
+			</button>
+		</div>
 	</div>
-
-	<label for="" class="label">Password</label>
-	<div class="control">
-		<p class="control has-icons-left">
-			<input class="input" type="password" #password />
-			<span class="icon is-small is-left">
-				<i class="fas fa-key"></i>
-			</span>
-		</p>
-	</div>
-
-	<button
-		class="button is-link mt-4"
-		(click)="signIn(userName.value, password.value)"
-	>
-		Log in
-	</button>
 </div>

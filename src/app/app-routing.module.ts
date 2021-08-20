@@ -28,6 +28,7 @@ const routes: Routes = [
 			import('./modules/posts/posts.module').then((m) => m.PostsModule),
 	},
 	{ path: 'access', component: AccessComponent },
+	{ path: '', pathMatch: 'full', redirectTo: 'users' },
 ]
 
 @NgModule({
