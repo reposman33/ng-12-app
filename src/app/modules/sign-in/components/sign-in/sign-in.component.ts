@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
     .signInWithEmailAndPassword(userName, password)
     .then((res) => {
       if(!!res.user) {
-        this.router.navigate([this.referrer])
+        this.router.navigate([this.referrer || 'users'])
       }
     })
     .catch((e) => console.log('ERROR SigningIn: ', e));
