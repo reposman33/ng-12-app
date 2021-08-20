@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
-import { Observable, Observer, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 const config = {
 	apiKey: "AIzaSyBT8_0sovEhbeBquwHVvgLqUriv-TttJo0",
@@ -21,8 +21,7 @@ export class SecurityService {
 	user: any
 	firebase
 	federatedProviders: {Facebook: any; Github: any; Google: any}
-	authenticated$: Observable<boolean> = new Observable()
-	authObserver: Observer<boolean>
+	authenticated$: Subject<boolean> = new Subject()
 	isLoggedIn: boolean
 
 	constructor() {
@@ -39,11 +38,6 @@ export class SecurityService {
 			Google: new firebase.auth.GoogleAuthProvider()
 		}
 		this.isLoggedIn = false
-		this.authObserver = {
-			next: () => this.isLoggedIn,
-			error: (e) => new Error(`ERROR: ${e.message}`),
-			complete: () => null
-		}
 
 	 }
 
@@ -66,7 +60,7 @@ export class SecurityService {
 					this.user = res.user
 					sessionStorage.setItem("userUid", this.user.uid)
 					this.isLoggedIn = true
-					this.authObserver.next(this.isLoggedIn)
+					this.authenticated$.next(this.isLoggedIn)
 				}
 				return res
 			})
@@ -81,7 +75,7 @@ export class SecurityService {
 					sessionStorage.removeItem("userUid")
 				}
 				this.isLoggedIn = false
-				this.authObserver.next(this.isLoggedIn)
+				this.authenticated$.next(this.isLoggedIn)
 			})
 			.catch(err => console.log("ERROR signing out: ", err))
 	};

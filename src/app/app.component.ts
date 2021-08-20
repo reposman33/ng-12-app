@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { SecurityService } from './services/security.service'
 @Component({
 	selector: 'app-root',
@@ -7,12 +7,12 @@ import { SecurityService } from './services/security.service'
 })
 export class AppComponent {
 	title: string
-	isAuthenticated: boolean
+	isAuthenticated: boolean = false
 
 	constructor(private securityService: SecurityService) {}
 
 	ngOnInit() {
-		this.isAuthenticated = this.securityService.isAuthenticated()
+		this.securityService.authenticated$.subscribe(authState => this.isAuthenticated = authState)
 		this.title = 'Angular playground'
 	}
 }
