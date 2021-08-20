@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from './guards/auth-guard'
-import { AccessComponent } from './modules/access/components/access/access.component'
+import { SignInComponent } from './modules/sign-in/components/sign-in/sign-in.component'
 
 const routes: Routes = [
 	{
@@ -27,7 +27,7 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/posts/posts.module').then((m) => m.PostsModule),
 	},
-	{ path: 'access', component: AccessComponent },
+	{ path: 'access', component: SignInComponent },
 	{ path: '', pathMatch: 'full', redirectTo: 'users' },
 ]
 

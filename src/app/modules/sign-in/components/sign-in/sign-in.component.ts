@@ -4,10 +4,10 @@ import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-access',
-  templateUrl: './access.component.html',
-  styleUrls: ['./access.component.scss'],
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss'],
 })
-export class AccessComponent implements OnInit {
+export class SignInComponent implements OnInit {
   referrer: string;
 
   constructor(

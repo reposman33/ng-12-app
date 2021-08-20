@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccessComponent } from './components/access/access.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [  
-    AccessComponent
+    SignInComponent
   ],
   imports: [
     CommonModule
