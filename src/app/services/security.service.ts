@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
+import { Observable, Observer, Subject } from 'rxjs';
 
 const config = {
 	apiKey: "AIzaSyBT8_0sovEhbeBquwHVvgLqUriv-TttJo0",
@@ -20,6 +21,9 @@ export class SecurityService {
 	user: any
 	firebase
 	federatedProviders: {Facebook: any; Github: any; Google: any}
+	authenticated$: Observable<boolean> = new Observable()
+	authObserver: Observer<boolean>
+	isLoggedIn: boolean
 
 	constructor() {
 		firebase.initializeApp(config)
@@ -34,6 +38,13 @@ export class SecurityService {
 			Github: new firebase.auth.GithubAuthProvider(),
 			Google: new firebase.auth.GoogleAuthProvider()
 		}
+		this.isLoggedIn = false
+		this.authObserver = {
+			next: () => this.isLoggedIn,
+			error: (e) => new Error(`ERROR: ${e.message}`),
+			complete: () => null
+		}
+
 	 }
 
   // createUserWithEmailAndPassword = (email, password) => {
@@ -54,6 +65,8 @@ export class SecurityService {
 				if (res.user?.uid) {
 					this.user = res.user
 					sessionStorage.setItem("userUid", this.user.uid)
+					this.isLoggedIn = true
+					this.authObserver.next(this.isLoggedIn)
 				}
 				return res
 			})
@@ -67,13 +80,17 @@ export class SecurityService {
 				if(sessionStorage.getItem("userUid")) {
 					sessionStorage.removeItem("userUid")
 				}
+				this.isLoggedIn = false
+				this.authObserver.next(this.isLoggedIn)
 			})
 			.catch(err => console.log("ERROR signing out: ", err))
 	};
 
-	// getCurrentUserId = () => this.user && this.user.userUid ? this.user.userUid : sessionStorage.getItem("userUid");
+	isAuthenticated() {
+		return this.isLoggedIn
+	} 
 
-	isAuthenticated() {return !!this.user}
+	// getCurrentUserId = () => this.user && this.user.userUid ? this.user.userUid : sessionStorage.getItem("userUid");
 
 	// setUser = (user) => this.user = user
 
