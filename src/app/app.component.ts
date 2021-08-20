@@ -11,6 +11,10 @@ export class AppComponent {
 
 	constructor(private securityService: SecurityService) {}
 
+	signOut() {
+		this.securityService.signOut()
+	}
+
 	ngOnInit() {
 		this.securityService.authenticated$.subscribe(authState => this.isAuthenticated = authState)
 		this.title = 'Angular playground'
