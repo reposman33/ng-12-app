@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { SecurityService } from './services/security.service'
+import { Router } from '@angular/router'
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -9,10 +10,11 @@ export class AppComponent {
 	title: string
 	isAuthenticated: boolean = false
 
-	constructor(private securityService: SecurityService) {}
+	constructor(private securityService: SecurityService, private router: Router) {}
 
 	signOut() {
 		this.securityService.signOut()
+		this.router.navigate(['/access'])
 	}
 
 	ngOnInit() {
